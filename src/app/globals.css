@@ -1,0 +1,87 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-paper: #e9e8e4;
+  --color-paper-deep: #dddcd6;
+  --color-mist: #d5d8dc;
+  --color-line: #c9cbd0;
+  --color-ink: #12151a;
+  --color-ink-soft: #3f4650;
+  --color-ink-mute: #6b7280;
+  --color-steel: #2a3642;
+  --color-navy: #1a2f42;
+  --color-navy-deep: #101c28;
+  --color-signal: #e86a1a;
+  --color-signal-deep: #c45410;
+  --color-warn: #8a5a12;
+  --color-warn-bg: #f0e8d8;
+  --shadow-card: 0 12px 40px rgba(18, 21, 26, 0.08);
+  --font-sans: var(--font-manrope);
+  --font-display: var(--font-unbounded);
+}
+
+html,
+body {
+  background: var(--color-paper);
+  color: var(--color-ink);
+}
+
+body {
+  font-family: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
+  background-image:
+    radial-gradient(ellipse 80% 50% at 10% -10%, rgba(232, 106, 26, 0.07), transparent 55%),
+    radial-gradient(ellipse 60% 40% at 100% 0%, rgba(42, 54, 66, 0.08), transparent 50%),
+    linear-gradient(180deg, #ebeae6 0%, #e4e3df 100%);
+  background-attachment: fixed;
+}
+
+.font-display {
+  font-family: var(--font-display), var(--font-sans), sans-serif;
+}
+
+.hero-veil {
+  background:
+    linear-gradient(105deg, rgba(10, 12, 16, 0.82) 0%, rgba(10, 12, 16, 0.45) 48%, rgba(10, 12, 16, 0.25) 100%),
+    linear-gradient(0deg, rgba(10, 12, 16, 0.72) 0%, transparent 42%);
+}
+
+.hero-ken {
+  animation: ken-burns 12s ease-out forwards;
+  transform-origin: center center;
+}
+
+@keyframes ken-burns {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.06);
+  }
+}
+
+.hero-enter {
+  animation: rise-in 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.section-reveal {
+  animation: rise-in 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-ken,
+  .hero-enter,
+  .section-reveal {
+    animation: none;
+  }
+}
